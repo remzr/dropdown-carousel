@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(240, 240, 240);
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    list-style: none;
+    padding: 8px;
+}
+
+ul {
+    margin-left: 20px;
+    padding: 12px;
+    border: solid 1px darkgreen;
+    border-radius: 10px;
+    text-align: left;
+    width: fit-content;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: darkgreen;
+}
+
+a:hover {
+    color: rgb(136, 206, 31);
+}
+
+.visible {
+    display: none;
+}
+
+ul>li:first-of-type {
+    font-weight: 600;
+    display: block;
+}
