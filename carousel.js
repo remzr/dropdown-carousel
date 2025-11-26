@@ -1,9 +1,27 @@
+//Global for slide state
+let activeSlide = 0;
+
 //Carousel slider function
 function slideCarousel(direction, event) {
 
     //Select all images
     const imageSelection = document.querySelectorAll(".viewport img");
-    console.log(imageSelection);
+
+    //Handle state
+    if (direction == "right" && activeSlide < imageSelection.length) {
+        activeSlide++;
+    } else if (direction == "right" && activeSlide == imageSelection) {
+        activeSlide = 0;
+    } else if (direction == "left" && activeSlide > 0) {
+        activeSlide--;
+    } else if (direction == "left" && activeSlide == 0) {
+        activeSlide = imageSelection.length;
+    } else {
+        activeSlide = event.target.getAttribute("name");
+    }
+    
+console.log(activeSlide);
+
 }
 
 firstDropdown.addEventListener("click", () => {
