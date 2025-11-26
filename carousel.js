@@ -1,35 +1,51 @@
 //Global for slide state
-let activeSlide = 0;
+let activeSlide = 1;
 
-//Carousel slider function
+//Image slide mechanism
+function imageSlider(activeSlide, wasActive) {
+
+    //Select images
+    const imageSelection = document.querySelectorAll(".viewport img");
+    
+    for (let i = 1; i <= imageSelection.length; i++) {
+        
+        if (activeSlide == wasActive) {
+            console.log("Same image");
+
+        } else if (i == activeSlide) {
+            imageSelection[i - 1].classList.toggle("visible");
+
+        } else if (i == wasActive) {
+            imageSelection[wasActive - 1].classList.toggle("visible");
+        }
+    }
+    console.log(`Active now: ${activeSlide}, Active before ${wasActive}`)};
+
+//Carousel state handle function
 function slideCarousel(direction, event) {
 
+    //Keep index before
+    const wasActive = activeSlide;
+    
     //Select all images
     const imageSelection = document.querySelectorAll(".viewport img");
 
     //Handle state
     if (direction == "right" && activeSlide < imageSelection.length) {
         activeSlide++;
-    } else if (direction == "right" && activeSlide == imageSelection) {
-        activeSlide = 0;
-    } else if (direction == "left" && activeSlide > 0) {
+    } else if (direction == "right") {
+        activeSlide = 1;
+    } else if (direction == "left" && activeSlide > 1) {
         activeSlide--;
-    } else if (direction == "left" && activeSlide == 0) {
+    } else if (direction == "left") {
         activeSlide = imageSelection.length;
     } else {
         activeSlide = event.target.getAttribute("name");
     }
     
-console.log(activeSlide);
+imageSlider(activeSlide, wasActive);
 
 }
-
-firstDropdown.addEventListener("click", () => {
-    
-    for (let i = 0; i < firstDropdownElements.length; i++) {
-        firstDropdownElements[i].classList.toggle("visible");
-    }
-})
 
 //Add event listener
 function carouselEventListeners() {
