@@ -7,14 +7,4 @@ firstDropdown.addEventListener("click", () => {
     for (let i = 0; i < firstDropdownElements.length; i++) {
         firstDropdownElements[i].classList.toggle("visible");
     }
-
 })
-
-
-/*
-    if (target.data-dropdown-state == "closed") {
-
-    } else {
-
-    }
-}; */
